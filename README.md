@@ -38,7 +38,7 @@ COMBINED = tf.Variable(CONTENT) # tf.Tensor
 
 # define feature extractor model
 model = FeatureExtractor.vgg_extractor_model
-# there are three options for models (checkout src/feature_extractor.py)
+# there are three options for models (check the src/feature_extractor.py)
 
 # main training
 STYLED_IMAGE = train(model = model,
