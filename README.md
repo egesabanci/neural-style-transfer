@@ -19,3 +19,31 @@ After replace the image paths, you are ready to go. Just do a one simple click t
 
 ### How to use these codes in my own case?
 There is a folder which is called `src` in this repository. Once you get there, you will encounter a well-separated and modular folder structure. Scripts' file extension is `.py`, which means you can import them directly to your own case.
+
+### Example usage
+```python
+from skimage import io
+import tensorflow as tf
+
+# train() function from src/train.py
+from train import train
+
+# feature extraction model from src/feature_extractor.py
+from feature_extractor import FeatureExtractor
+
+# read your custom images 
+CONTENT = io.imread("path/to/content/image")
+STYLE = io.imread("path/to/style/image")
+COMBINED = tf.Variable(CONTENT) # tf.Tensor
+
+# define feature extractor model
+model = FeatureExtractor.vgg_extractor_model
+# there are three options for models (checkout src/feature_extractor.py)
+
+# main training
+STYLED_IMAGE = train(model = model,
+                       content = CONTENT,
+                       style = STYLE,
+                       generated = COMBINED,
+                       epochs = 50)
+```
