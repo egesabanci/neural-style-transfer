@@ -42,8 +42,8 @@ model = FeatureExtractor.vgg_extractor_model
 
 # main training
 STYLED_IMAGE = train(model = model,
-                       content = CONTENT,
-                       style = STYLE,
-                       generated = COMBINED,
-                       epochs = 50)
+                      content = CONTENT,
+                      style = STYLE,
+                      generated = COMBINED,
+                      epochs = 50)
 ```
